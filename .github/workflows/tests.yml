@@ -34,6 +34,9 @@ jobs:
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite
           coverage: none
 
+      - name: Setup Composer
+        run: composer config http-basic.nova.laravel.com ${{ secrets.NOVA_EMAIL }} ${{ secrets.NOVA_PASSWORD }}
+
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
 

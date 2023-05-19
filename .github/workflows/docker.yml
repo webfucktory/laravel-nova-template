@@ -75,6 +75,9 @@ jobs:
           cache-to: type=gha,scope=base,mode=max
           file: .docker/build/Dockerfile
           push: true
+          build-args: |
+            "nova_email=${{ secrets.NOVA_EMAIL }}"
+            "nova_password=${{ secrets.NOVA_PASSWORD }}"
           tags: ${{ steps.base_meta.outputs.tags }}
 
       - name: build and push Webserver image

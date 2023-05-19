@@ -4,8 +4,11 @@ export BASE_IMAGE=ghcr.io/{owner}/{repository}
 
 ### Base
 
+> Note: replace `NOVA_EMAIL`, `NOVA_PASSWORD` with correct values.
 ```shell
 docker build \
+  --build-arg nova_email=NOVA_EMAIL \
+  --build-arg nova_password=NOVA_PASSWORD \
   -f Dockerfile \
   -t $BASE_IMAGE \
   ../..
